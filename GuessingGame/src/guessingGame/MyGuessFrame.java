@@ -9,14 +9,14 @@ public class MyGuessFrame extends JFrame {
 	private Container pane;
 	private int guessCount;
 	private int gameCount;
-    private int number;
-    private int guess;
-    JButton button1, button2, button3, button4,
+	private int number;
+	private int guess;
+	JButton button1, button2, button3, button4,
 			button5, button6, playAgainB, exitB;
 
-    //Game constructor
+	//Game constructor
 	public MyGuessFrame() {
-		// Create pane and window settings
+    	// Create pane and window settings
 		pane = getContentPane();
      	pane.setLayout(null);
      	setTitle("Guessing Game");
@@ -55,8 +55,8 @@ public class MyGuessFrame extends JFrame {
      					button4.setEnabled(false);
      					button5.setEnabled(false);
      					button6.setEnabled(false);
-            		    gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					gameCount++;
+     					winPrompt(guessCount, gameCount);
      				}
      				else
      				// Incorrect guess simply changes color
@@ -86,7 +86,7 @@ public class MyGuessFrame extends JFrame {
      					button5.setEnabled(false);
      					button6.setEnabled(false);
      					gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					winPrompt(guessCount, gameCount);
      				}
      				else 
      					button2.setBackground(Color.red);
@@ -115,7 +115,7 @@ public class MyGuessFrame extends JFrame {
      					button5.setEnabled(false);
      					button6.setEnabled(false);
      					gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					winPrompt(guessCount, gameCount);
      				}
      				else
             		   button3.setBackground(Color.red);            	   
@@ -144,7 +144,7 @@ public class MyGuessFrame extends JFrame {
      					button5.setEnabled(false);
      					button6.setEnabled(false);
      					gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					winPrompt(guessCount, gameCount);
      				}
      				else 
             		   button4.setBackground(Color.red);
@@ -173,7 +173,7 @@ public class MyGuessFrame extends JFrame {
      					button4.setEnabled(false);
      					button6.setEnabled(false);
      					gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					winPrompt(guessCount, gameCount);
      				}
      				else 
      					button5.setBackground(Color.red);
@@ -202,7 +202,7 @@ public class MyGuessFrame extends JFrame {
      					button4.setEnabled(false);
      					button5.setEnabled(false);            		   
      					gameCount++;
-            		    winPrompt(guessCount, gameCount);
+     					winPrompt(guessCount, gameCount);
      				}
      				else
      					button6.setBackground(Color.red);
@@ -227,16 +227,16 @@ public class MyGuessFrame extends JFrame {
      				
      				button1.setEnabled(true);
      				button1.setBackground(null);
- 					button2.setEnabled(true);
- 					button2.setBackground(null);
- 					button3.setEnabled(true);
- 					button3.setBackground(null);
- 					button4.setEnabled(true);
- 					button4.setBackground(null);
- 					button5.setEnabled(true);
- 					button5.setBackground(null);
- 					button6.setEnabled(true);
- 					button6.setBackground(null);
+     				button2.setEnabled(true);
+     				button2.setBackground(null);
+     				button3.setEnabled(true);
+     				button3.setBackground(null);
+     				button4.setEnabled(true);
+     				button4.setBackground(null);
+     				button5.setEnabled(true);
+     				button5.setBackground(null);
+     				button6.setEnabled(true);
+     				button6.setBackground(null);
      			}
      		}
      	);
