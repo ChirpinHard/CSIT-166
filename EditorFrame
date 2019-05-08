@@ -16,7 +16,8 @@ public class EditorFrame extends JFrame {
 
 	private final int WIDTH = 750;
 	private final int HEIGHT = 410;
-   
+
+	private JTextArea fileText;
 	private JTextArea textArea;
 	private JButton saveB;
 	private JButton openB;
@@ -53,6 +54,7 @@ public class EditorFrame extends JFrame {
 
 		pane.setBackground(Color.BLACK); //set pane color...
 
+		fileText = new JTextArea();
 		textArea = new JTextArea();
 		scroll = new JScrollPane(textArea);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -65,22 +67,30 @@ public class EditorFrame extends JFrame {
 		//set the layout of the pane to null
 		pane.setLayout(null);
 
+		JLabel label1 = new JLabel("Enter File Name:");
+		label1.setFont(new Font("Arial", Font.BOLD, 18));
+		pane.add(label1);
+		label1.setLocation(10, 10);
+		label1.setSize(200, 30);
+		label1.setForeground(Color.WHITE);
 		//add our label...
-		JLabel label = new JLabel("Enter Text:");
-		label.setFont(new Font("Arial", Font.BOLD, 18));
-		pane.add(label);
-		label.setLocation(0, 10);
-		label.setSize(100, 30);
-		label.setForeground(Color.WHITE);
+		JLabel label2 = new JLabel("Enter Text:");
+		label2.setFont(new Font("Arial", Font.BOLD, 18));
+		pane.add(label2);
+		label2.setLocation(10, 80);
+		label2.setSize(100, 30);
+		label2.setForeground(Color.WHITE);
 
 
 		//set the locations of the GUI components
-		textArea.setLocation(10, 100);
-		saveB.setLocation(220, 340);
-		openB.setLocation(340, 340);
+		fileText.setLocation(10, 40);
+		textArea.setLocation(10, 110);
+		openB.setLocation(200, 40);
+		saveB.setLocation(325, 340);
 
 
 		//set the sizes of the GUI components
+		fileText.setSize(175, 25);
 		textArea.setSize(725, 200);
 		saveB.setSize(100, 30);
 		openB.setSize(100, 30);
@@ -88,11 +98,12 @@ public class EditorFrame extends JFrame {
      
 
 		//add components to the pane
+		pane.add(fileText);
 		pane.add(scroll);
 		pane.add(saveB);
 		pane.add(openB);
 
-		scroll.setBounds(10,100,720,200);
+		scroll.setBounds(10,110,720,200);
 		scroll.setVisible(true);
 
      
@@ -117,8 +128,18 @@ public class EditorFrame extends JFrame {
 		(
 			new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						
-				}
+					textArea.setText("");
+					String fileName = fileText.getText();
+					
+						try {
+							openFile(fileName);
+						} 
+						catch(Exception nf) {
+							JOptionPane.showMessageDialog( null, "File Not Found, Try Again",
+									"Error!", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				
 			}
 		);
 
@@ -147,7 +168,7 @@ public class EditorFrame extends JFrame {
 		fileIn.close();
 		
 		for (String x : f) {
-			textArea.append(x);
+			textArea.append(x + "\n");
 		}
 				
 	}
